@@ -1,18 +1,11 @@
+require IEx;
 defmodule Debugging do
-  @moduledoc """
-  Documentation for Debugging.
-  """
+  def double_sum(x, y) do
+    IEx.pry
+    hard_work(x, y)
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Debugging.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defp hard_work(x, y) do
+    2 * (x + y)
   end
 end
