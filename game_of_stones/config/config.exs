@@ -2,7 +2,7 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :game_of_stones, default_stones: 27
+#config :game_of_stones, default_stones: 27
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
