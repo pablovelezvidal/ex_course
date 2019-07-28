@@ -6,6 +6,9 @@ defmodule GameOfStones.MixProject do
       app: :game_of_stones,
       version: "0.1.0",
       elixir: "~> 1.8",
+      escript: [
+        main_module: GameOfStones.GameClient
+      ],
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
