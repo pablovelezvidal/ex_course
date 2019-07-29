@@ -9,15 +9,12 @@ defmodule GameOfStones.GameClient do
   end
 
   def play(initial_stones_num \\ 20) do
-    initial_stones_num |> GameOfStones.GameServer.start
-    start_game!()
-  end
-
-  defp start_game! do
-    case GameOfStones.GameServer.stats do
-      {player, current_stones} ->
+    case GameOfStones.GameServer.set_stones(initial_stones_num) do
+      {player, current_stones, :game_in_progress} ->
         IO.puts "Welcome! It's player #{player} turn. #{current_stones} in the pile" |>
         Colors.green
+      {player, current_stones, :game_continue} ->
+        IO.puts "Continuing the Game! it's player #{player} turn!, the number of stones is #{current_stones} in the pile"
     end
     take()
   end
@@ -43,5 +40,5 @@ defmodule GameOfStones.GameClient do
   end
 
   defp stones_to_take({count, _}), do: count
-  defp stones_to_take(:error), do: 0
+  defp stones_to_take(:error), do: nil
 end
